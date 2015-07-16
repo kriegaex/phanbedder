@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<parent>
 		<groupId>net.anthavio.maven</groupId>
 		<artifactId>anthavio-super-pom</artifactId>
 		<version>4</version>
 		<relativePath />
 	</parent>
-	
+
 	<groupId>net.anthavio</groupId>
-	<artifactId>phanbedder-1.9.8</artifactId>
+	<artifactId>phanbedder-2.0.0</artifactId>
 	<version>1.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	
+
 	<name>PhantomJS Embedder</name>
-	
+
 	<inceptionYear>2014</inceptionYear>
 	<description>PhantomJS Windows/Mac OS X/Linux native binary embedder</description>
 
@@ -28,7 +28,7 @@
 	</licenses>
 
 	<url>http://anthavio.github.com/phanbedder</url>
-	
+
 	<scm>
 		<url>https://github.com/anthavio/phanbedder</url>
 		<connection>scm:git:git://github.com/anthavio/phanbedder.git</connection>
@@ -38,10 +38,11 @@
 
 	<properties>
 		<project.build.java.target>1.6</project.build.java.target>
+		<enforcer.skip>true</enforcer.skip>
 	</properties>
-	
+
 	<developers>
-		
+
 		<developer>
 			<id>anthavio</id>
 			<name>Martin Vaněk</name>
@@ -56,21 +57,21 @@
 	<dependencies>
 
 		<!-- test -->
-		
+
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>1.7.5</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
 			<version>1.1.1</version>
 			<scope>test</scope>
 		</dependency>
-				
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -84,7 +85,7 @@
 			<version>1.6.1</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.github.detro.ghostdriver</groupId>
 			<artifactId>phantomjsdriver</artifactId>
@@ -93,7 +94,7 @@
 		</dependency>
 
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -103,7 +104,15 @@
 					<header>com/mycila/maven/plugin/license/templates/BSD-2.txt</header><!-- APACHE-2, LGPL-3 -->
 				</configuration>
 			</plugin>
-
+			<plugin>
+				<groupId>de.smartics.maven.plugin</groupId>
+				<artifactId>buildmetadata-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>none</phase>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
